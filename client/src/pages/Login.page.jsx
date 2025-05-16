@@ -8,7 +8,7 @@ import AxiosTostError from "../utils/AxiosTostError.utils";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUserDetails } from "../store/userSlice";
-import fetchUserDetails from "../utils/fetchUserDetails.utils";
+import fetchUserDetails from "../utils/fetchUserDetails_temp.utils";
 
 const Login = () => {
   const [formData, setFormData] = useState({
