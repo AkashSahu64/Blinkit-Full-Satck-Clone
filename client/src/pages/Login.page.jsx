@@ -6,10 +6,9 @@ import Axios from "../utils/Axios.utils";
 import SummaryApi from "../common/SummaryApi";
 import AxiosTostError from "../utils/AxiosTostError.utils";
 import { Link } from "react-router-dom";
-// import fetchUserDetails from "../utils/FetchUserDetails.utils";
 import { useDispatch } from "react-redux";
 import { setUserDetails } from "../store/userSlice";
-import fetchUserDetials from "../utils/fetchUserDetails.utils";
+import fetchUserDetails from "../utils/fetchUserDetails.utils";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -52,8 +51,7 @@ const Login = () => {
         localStorage.setItem("accessToken", response.data.accessToken);
         localStorage.setItem("refreshToken", response.data.refreshToken);
 
-        //const userDetails = await fetchUserDetails();
-        const userDetails = await fetchUserDetials()
+        const userDetails = await fetchUserDetails()
         dispatch(setUserDetails(userDetails.data));
 
         setFormData({ email: "", password: "" });
