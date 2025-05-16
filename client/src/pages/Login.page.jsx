@@ -6,9 +6,10 @@ import Axios from "../utils/Axios.utils";
 import SummaryApi from "../common/SummaryApi";
 import AxiosTostError from "../utils/AxiosTostError.utils";
 import { Link } from "react-router-dom";
-import fetchUserDetails from "../utils/fetchUserDetails.utils";
+// import fetchUserDetails from "../utils/FetchUserDetails.utils";
 import { useDispatch } from "react-redux";
 import { setUserDetails } from "../store/userSlice";
+import fetchUserDetials from "../utils/fetchUserDetails.utils";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -18,7 +19,7 @@ const Login = () => {
 
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   // Handle Input Change
   const handleChange = useCallback((e) => {
@@ -27,7 +28,9 @@ const Login = () => {
   }, []);
 
   // Check if Form is Valid
-  const isFormValid = Object.values(formData).every((field) => field.trim() !== "");
+  const isFormValid = Object.values(formData).every(
+    (field) => field.trim() !== ""
+  );
 
   // Handle Form Submission
   const handleSubmit = async (e) => {
@@ -49,8 +52,9 @@ const Login = () => {
         localStorage.setItem("accessToken", response.data.accessToken);
         localStorage.setItem("refreshToken", response.data.refreshToken);
 
-       const userDetails = await fetchUserDetails()
-        dispatch(setUserDetails(userDetails.data))
+        //const userDetails = await fetchUserDetails();
+        const userDetails = await fetchUserDetials()
+        dispatch(setUserDetails(userDetails.data));
 
         setFormData({ email: "", password: "" });
         navigate("/"); // Redirect after login
@@ -104,7 +108,10 @@ const Login = () => {
                 {showPassword ? <FaRegEye /> : <FaRegEyeSlash />}
               </div>
             </div>
-            <Link to={'/forgot-password'} className='block text-right text-blue-500'>
+            <Link
+              to={"/forgot-password"}
+              className="block text-right text-blue-500"
+            >
               Forgot password?
             </Link>
           </div>
@@ -128,7 +135,10 @@ const Login = () => {
         {/* Navigation to Register */}
         <p className="text-center">
           Don't have an account?{" "}
-          <span onClick={() => navigate("/register")} className="text-blue-500 cursor-pointer">
+          <span
+            onClick={() => navigate("/register")}
+            className="text-blue-500 cursor-pointer"
+          >
             Register
           </span>
         </p>
