@@ -2,7 +2,7 @@ import React from "react";
 import banner from "../assets/banner.jpg";
 import bannerMobile from "../assets/banner-mobile.jpg";
 import { useSelector } from "react-redux";
-import { validUrlConvert } from "../utils/ValidUrlConvert";
+import { validUrlConvert } from "../utils/validUrlConvert";
 import { useNavigate } from "react-router-dom";
 import CategoryWiseProduct from "../components/CategoryWiseProduct";
 
