@@ -6,7 +6,7 @@ import { Link, useParams } from "react-router-dom";
 import Loader from "../components/Loader";
 import CardProduct from "../components/CardProduct";
 import { useSelector } from "react-redux";
-import { validUrlConvert } from "../utils/ValidUrlConvert";
+import { validUrlConvert } from "../utils/validUrlConvert";
 
 const ProductList = () => {
   const [data, setData] = useState([]);

@@ -1,7 +1,7 @@
 import React from "react";
 import { DisplayPrice } from "../utils/DisplayPrice";
 import { Link } from "react-router-dom";
-import { validUrlConvert } from "../utils/ValidUrlConvert";
+import { validUrlConvert } from "../utils/validUrlConvert";
 import { priceDiscount } from "../utils/priceDiscount";
 import AddToCartButton from "./AddToCartButton";
 
