@@ -1,0 +1,1 @@
+use resend.com for Email verification

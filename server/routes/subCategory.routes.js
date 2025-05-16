@@ -1,0 +1,12 @@
+import { Router } from 'express';
+import auth from '../middleware/auth.middleware.js'
+import { AddSubCategoryController, deleteSubCategoryController, GetSubCategoryController, updateSubCategoryController } from '../controllers/subCategory.controller.js';
+
+const subCategoryRouter = Router();
+
+subCategoryRouter.post('/create', auth, AddSubCategoryController);
+subCategoryRouter.post('/get', GetSubCategoryController);
+subCategoryRouter.put('/update', auth, updateSubCategoryController);
+subCategoryRouter.delete('/delete', auth, deleteSubCategoryController);
+
+export default subCategoryRouter;
