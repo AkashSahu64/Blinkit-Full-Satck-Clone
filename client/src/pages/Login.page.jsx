@@ -8,7 +8,8 @@ import AxiosTostError from "../utils/AxiosTostError.utils";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUserDetails } from "../store/userSlice";
-import fetchUserDetails from "../utils/fetchUserDetails_temp.utils";
+//import fetchUserDetails from "../utils/fetchUserDetails_temp.utils";
+import fetchUserDetails from "../utils/FetchUserDetails.utils";
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -51,6 +52,7 @@ const Login = () => {
         localStorage.setItem("accessToken", response.data.accessToken);
         localStorage.setItem("refreshToken", response.data.refreshToken);
 
+        // const userDetails = await fetchUserDetails()
         const userDetails = await fetchUserDetails()
         dispatch(setUserDetails(userDetails.data));
 
