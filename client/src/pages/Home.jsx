@@ -7,9 +7,9 @@ import { useNavigate } from "react-router-dom";
 import CategoryWiseProduct from "../components/CategoryWiseProduct";
 
 const Home = () => {
-  const loadingCategory = useSelector(state => state.product.loadingCategory);
-  const categoryData = useSelector(state => state.product.allCategory);
-  const subCategoryData = useSelector(state => state.product.allSubCategory);
+  const loadingCategory = useSelector(state => state?.product?.loadingCategory);
+  const categoryData = useSelector(state => state?.product?.allCategory);
+  const subCategoryData = useSelector(state => state?.product?.allSubCategory);
   const navigate = useNavigate();
 
   const handleProductList = (id, cat) => {
